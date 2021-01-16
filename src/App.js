@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import * as ReactBootStrap from "react-bootstrap";
 
-function App() {
+const App = () => {
+  const players = [
+    { position: "valorant", name: "harshal", team: "1" },
+    { position: "warzone", name: "john", team: "1" },
+    { position: "genshin", name: "jamie", team: "2" },
+  ];
+  const renderPlayer = (player, index) => {
+    return (
+      <tr key={index}>
+        <td>{player.name}</td>
+        <td>{player.position}</td>
+        <td>{player.team}</td>
+      </tr>
+    );
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactBootStrap.Table stripped border hover>
+        <thread>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Team</th>
+          </tr>
+        </thread>
+        <tbody>{players.map(renderPlayer)}</tbody>
+      </ReactBootStrap.Table>
     </div>
   );
-}
+};
 
 export default App;
