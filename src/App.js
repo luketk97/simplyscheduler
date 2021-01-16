@@ -5,7 +5,7 @@ import * as ReactBootStrap from "react-bootstrap";
 const App = () => {
   const players = [
     { position: "valorant", name: "harshal", team: "1" },
-    { position: "warzone", name: "john", team: "1" },
+    { position: "warzone", name: "sexy jon", team: "1" },
     { position: "genshin", name: "jamie", team: "2" },
   ];
   const renderPlayer = (player, index) => {
