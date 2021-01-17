@@ -1,36 +1,64 @@
-import logo from "./logo.svg";
+import React, { Component } from "react";
+import {MuiThemeProvider} from "@material-ui/core/styles";
+//import injectTapEventPlugin from "react-tap-event-plugin";
+//import logo from "./logo.svg";
 import "./App.css";
-import * as ReactBootStrap from "react-bootstrap";
+import Table from "./Table";
 
-const App = () => {
-  const players = [
-    { position: "valorant", name: "madgod420", team: "1" },
-    { position: "warzone", name: "sexy jon", team: "1" },
-    { position: "genshin", name: "jamie", team: "2" },
-  ];
-  const renderPlayer = (player, index) => {
-    return (
-      <tr key={index}>
-        <td>{player.name}</td>
-        <td>{player.position}</td>
-        <td>{player.team}</td>
-      </tr>
-    );
+//injectTapEventPlugin();
+
+class App extends Component {
+  state = {
+    data: []
   };
-  return (
-    <div className="App">
-      <ReactBootStrap.Table stripped border hover>
-        <thread>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Team</th>
-          </tr>
-        </thread>
-        <tbody>{players.map(renderPlayer)}</tbody>
-      </ReactBootStrap.Table>
-    </div>
-  );
-};
+
+  render() {
+    return (
+      <MuiThemeProvider>
+        <div className="App">
+          <Table
+            data={this.state.data}
+            header={[
+              {
+                name: "Name",
+                prop: "name"
+              },
+              {
+                name: "Sunday",
+                prop: "sunday"
+              },
+              {
+                name: "Monday",
+                prop: "monday"
+              },
+              {
+                name: "Tuesday",
+                prop: "tuesday"
+              },
+              {
+                name: "Wednesday",
+                prop: "wednesday"
+              },
+              {
+                name: "Thursday",
+                prop: "thursday"
+              },
+              {
+                name: "Friday",
+                prop: "friday"
+              },
+              {
+                name: "Saturday",
+                prop: "saturday"
+              }
+            ]}
+          />
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+}
+
+
 
 export default App;
